@@ -43,7 +43,7 @@ namespace SEDC.PizzaApp.Controllers
                 ViewBag.Pizza = StaticDb.Pizzas.PizzasToViewModel().FirstOrDefault(p => p.Id == id);
                 if (ViewBag.Pizza != null)
                 {
-                    return View();
+                    return View(ViewBag.Pizza);
                 }
                 return View("NoData");
             }

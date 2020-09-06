@@ -8,13 +8,9 @@
 
 @foreach (PizzaViewModel pizza in Model)
 {
-    <ul>
-        <li> Name: @pizza.Pizza </li>
-        <li> Size: @pizza.PizzaSize </li>
-        <li> Price: @pizza.Price  </li>
-    </ul>
+    <partial name="~/Views/Shared/Partials/_PizzaInfo.cshtml" for="@pizza" />
     <hr />
 }
 <hr />
 
-<partial name="~/Views/Shared/Partials/_PizzaMessage.cshtml"/>
+<partial name="~/Views/Shared/Partials/_PizzaMessage.cshtml" />

@@ -1,13 +1,14 @@
-﻿
+﻿@model PizzaViewModel
 
 <h5>@ViewData["Title"]</h5>
 <hr />
 
-<ul>
+@*<ul>
     <li> Name: @ViewBag.Pizza.Pizza </li>
     <li> Size: @ViewBag.Pizza.PizzaSize </li>
     <li> Price: @ViewBag.Pizza.Price  </li>
-</ul>
+</ul>*@
+<partial name="~/Views/Shared/Partials/_PizzaInfo.cshtml" for="@Model" />
 <hr />
 
 @if (ViewBag.Pizza.IsOnPromotion)
