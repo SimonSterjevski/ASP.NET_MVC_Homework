@@ -1,0 +1,17 @@
+﻿@model List<PizzaViewModel>
+@*@{
+        ViewData["Title"] = "Index";
+    }*@
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+@foreach (PizzaViewModel pizza in Model)
+{
+    <ul>
+        <li> Name: @pizza.Pizza </li>
+        <li> Size: @pizza.PizzaSize </li>
+        <li> Price: @pizza.Price  </li>
+    </ul>
+    <hr />
+}
