@@ -1,0 +1,12 @@
+﻿@model Pizza
+
+@*@Html.Partial("~/Views/Shared/Partials/_DetailsGreeting.cshtml")*@
+<partial name="~/Views/Shared/Partials/_DetailsGreeting.cshtml"/>
+
+@*<h4>Pizza Details:</h4>*@
+
+<p> PizzaName: @Model.Name </p>
+<p> PizzaPrice: @Model.Price </p>
+<br />
+<a asp-controller="Pizza" asp-action="EditPizza" asp-route-id="@Model.Id"> Edit pizza </a>
+<a asp-controller="Pizza" asp-action="DeletePizza" asp-route-id="@Model.Id"> Delete pizza </a>

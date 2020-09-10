@@ -1,0 +1,7 @@
+﻿@model UserDetailsViewModel
+
+<h4> Are you sure you want to delete user: @Model.FullName with address: @Model.Address</h4>
+<input type="hidden" asp-for="Id" />
+<a asp-controller="User" asp-action="ConfirmDelete" asp-route-id="@Model.Id"> Delete user </a>
+<br />
+<a asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"> Go back </a>

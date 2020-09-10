@@ -1,0 +1,17 @@
+﻿@model List<UserDDViewModel>
+
+
+<h4>List of Users: </h4>
+<br />
+<ul>
+    @foreach (UserDDViewModel user in @Model)
+    {
+        <li> Name: <a asp-controller="User" asp-action="Details" asp-route-id="@user.Id">  @user.FullName </a> </li>
+        <hr />
+    }
+</ul>
+
+<a asp-controller="User" asp-action="CreateUser"> Create new user </a>
+<br />
+
+<span>@ViewData["SharedMessage"]</span>

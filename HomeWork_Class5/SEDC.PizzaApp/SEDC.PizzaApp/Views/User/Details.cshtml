@@ -1,0 +1,9 @@
+﻿@model UserDetailsViewModel
+
+<partial name="~/Views/Shared/Partials/_DetailsGreeting.cshtml" />
+
+<p> Name: @Model.FullName </p>
+<p> Address: @Model.Address </p>
+<br />
+<a asp-controller="User" asp-action="EditUser" asp-route-id="@Model.Id"> Edit User </a>
+<a asp-controller="User" asp-action="DeleteUser" asp-route-id="@Model.Id"> Delete User </a>

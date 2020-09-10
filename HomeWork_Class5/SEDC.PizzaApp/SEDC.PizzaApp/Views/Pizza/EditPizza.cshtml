@@ -1,0 +1,20 @@
+﻿@model Pizza
+
+<h5> Edit pizza </h5>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditChanges" asp-controller="Pizza" method="post">
+            <input type="hidden" asp-for="Id"/>
+            <div class="form-control">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" required />
+            </div>
+            <div class="form-control">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" type="number" required />
+            </div>
+            <button type="submit" class="btn btn-default"> Save changes </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model OrderDetailsViewModel
+@*@{
+        string deliveredMessage = "";
+        if (Model.Delivered)
+        {
+            deliveredMessage = "The order was delivered";
+        }
+        else
+        {
+            deliveredMessage = "The order was not delivered";
+        }
+    }*@
+
+<partial name="~/Views/Shared/Partials/_DetailsGreeting.cshtml" />
+
+
+
+
+@*<p>Id: @Model.Id - Pizza Name: @Model.PizzaName</p>
+    <p>@($"Mr/Mrs: {Model.UserFullName}")</p>
+    <p>Payment Method: @Model.PaymentMethod</p>
+
+    <p>Price: @(Model.Price + Model.Price*(decimal)0.1)</p>
+
+    <p>@ViewBag.User.FirstName</p>*@
+
+@*<h3>@deliveredMessage</h3>*@
+
+
+@*<partial name="~/Views/Shared/Partials/_OrderDetails.cshtml" for="@Model" />*@
+@Html.Partial("~/Views/Shared/Partials/_OrderDetails.cshtml", Model)
+
+@if (Model.Delivered)
+{
+    <p>The order was delivered</p>
+}
+else
+{
+    <h3>The order was not delivered!</h3>
+}
+@Html.ActionLink("Back to Orders","Index")
+@*<a asp-action="Index">Back To Orders</a>*@
+<br/>
+@Html.ActionLink("Back to home page","Index","Home")
+@*<a asp-controler="Home" asp-action="Index" target="_blank">Back To home page</a>*@

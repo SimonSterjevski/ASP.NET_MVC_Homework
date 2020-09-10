@@ -1,0 +1,17 @@
+﻿@model OrderDetailsViewModel
+
+<h3>Are you sure that you want to delete the following order:</h3>
+<p>Pizza Name: @Model.PizzaName</p>
+<p>User: @Model.UserFullName</p>
+<p>Payment Method: @Model.PaymentMethod</p>
+<p>Pizza Store:@Model.PizzaStore</p>
+
+@*===This will perform POST===*@
+<!--<form asp-action="DeleteOrderPost">
+    <input type="hidden" asp-for="Id"/>-->
+    @*<input type="hidden" asp-for="PizzaName"/>*@
+<!--<input type="submit"/>
+</form>-->
+
+@*===This will hit the action via url, using GET===*@
+<a asp-action="ConfirmDelete" asp-route-id="@Model.Id">Confirm Delete</a>

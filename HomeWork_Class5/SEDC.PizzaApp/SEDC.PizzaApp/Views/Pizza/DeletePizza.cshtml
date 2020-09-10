@@ -1,0 +1,7 @@
+﻿@model Pizza
+
+<h4> Are you sure you want to delete pizza: @Model.Name</h4>
+<input type="hidden" asp-for="Id"/>
+<a asp-controller="Pizza" asp-action="ConfirmDelete" asp-route-id="@Model.Id"> Delete pizza </a>
+<br />
+<a asp-controller="Pizza" asp-action="Details" asp-route-id="@Model.Id"> Go back </a>

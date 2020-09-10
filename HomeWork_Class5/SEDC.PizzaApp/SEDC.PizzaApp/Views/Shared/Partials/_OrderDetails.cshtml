@@ -1,0 +1,10 @@
+﻿@model OrderDetailsViewModel
+
+
+<p>Id: @Model.Id</p>
+@*<p>Pizza Name: @Model.PizzaName</p>*@
+@*<p>@Html.LabelFor(x=>x.PizzaName): @Html.DisplayFor(x=>x.PizzaName)</p>*@
+<p><label asp-for="PizzaName"></label>: @Html.DisplayFor(x => x.PizzaName)</p>
+<p>Payment Method: @Model.PaymentMethod</p>
+<p>User: @($"Mr/Mrs: {Model.UserFullName}")</p>
+<p>Price + Delivery: @(Model.Price + Model.Price*(decimal)0.1)</p>
