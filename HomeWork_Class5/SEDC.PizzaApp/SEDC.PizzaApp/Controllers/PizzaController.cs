@@ -92,12 +92,12 @@ namespace SEDC.PizzaApp.Controllers
             if (id != null)
             {
                 Pizza pizza = StaticDb.Pizzas.FirstOrDefault(x => x.Id == id);
-                List<Pizza> orderedPizzas = StaticDb.Orders.Select(x => x.Pizza).ToList();
+                List<int> orderedPizzasIds = StaticDb.Orders.Select(x => x.Pizza.Id).ToList();
                 if (pizza == null)
                 {
                     return View("ResourceNotFound");
                 }
-                if (orderedPizzas.Contains(pizza))
+                if (orderedPizzasIds.Contains(pizza.Id))
                 {
                     return View("ActionForbidden");
                 }

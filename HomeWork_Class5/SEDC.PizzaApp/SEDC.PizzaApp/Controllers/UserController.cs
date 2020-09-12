@@ -70,12 +70,12 @@ namespace SEDC.PizzaApp.Controllers
             if (id != null)
             {
                 User user = StaticDb.Users.FirstOrDefault(x => x.Id == id);
-                List<User> usersWithOrders = StaticDb.Orders.Select(x => x.User).ToList();
+                List<int> usersIdsWithOrders = StaticDb.Orders.Select(x => x.User.Id).ToList();
                 if (user == null)
                 {
                     return View("ResourceNotFound");
                 }
-                if (usersWithOrders.Contains(user))
+                if (usersIdsWithOrders.Contains(user.Id))
                 {
                     return View("ActionForbidden");
                 }
