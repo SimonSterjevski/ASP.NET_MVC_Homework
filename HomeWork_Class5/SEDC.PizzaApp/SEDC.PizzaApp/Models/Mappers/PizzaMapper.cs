@@ -1,4 +1,5 @@
-﻿using SEDC.PizzaApp.Models.Domain;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using SEDC.PizzaApp.Models.Domain;
 using SEDC.PizzaApp.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SEDC.PizzaApp.Models.Mappers
 {
-    public class PizzaMapper
+    public static class PizzaMapper
     {
         public static PizzaDDViewModel ToPizzaDDViewModel(Pizza pizza)
         {
@@ -15,6 +16,26 @@ namespace SEDC.PizzaApp.Models.Mappers
             {
                 Id = pizza.Id,
                 PizzaName = pizza.Name
+            };
+        }
+
+        public static PizzaViewModel ToPizzaViewModel(this Pizza pizza)
+        {
+            return new PizzaViewModel
+            {
+                Id = pizza.Id,
+                Name = pizza.Name,
+                Price = pizza.Price
+            };
+        }
+
+        public static Pizza ToPizzaDomain(this PizzaViewModel pizza)
+        {
+            return new Pizza
+            {
+                Id = pizza.Id,
+                Name = pizza.Name,
+                Price = pizza.Price
             };
         }
     }

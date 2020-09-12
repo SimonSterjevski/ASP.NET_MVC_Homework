@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.PizzaApp.Models;
 using SEDC.PizzaApp.Models.Domain;
+using SEDC.PizzaApp.Models.Mappers;
+using SEDC.PizzaApp.Models.ViewModels;
 
 namespace SEDC.PizzaApp.Controllers
 {
@@ -13,7 +15,7 @@ namespace SEDC.PizzaApp.Controllers
     {
         public IActionResult Index()
         {
-            List<Pizza> pizzas = StaticDb.Pizzas;
+            List<PizzaViewModel> pizzas = StaticDb.Pizzas.Select(x => x.ToPizzaViewModel()).ToList();
             return View(pizzas); // returns ViewResult
         }
 
@@ -39,7 +41,7 @@ namespace SEDC.PizzaApp.Controllers
                 Pizza pizza = StaticDb.Pizzas.FirstOrDefault(x => x.Id == id);
                 if(pizza != null)
                 {
-                    return View(pizza);
+                    return View(pizza.ToPizzaViewModel());
                 }
                 return View("ResouceNotFound");
             }
@@ -50,15 +52,15 @@ namespace SEDC.PizzaApp.Controllers
         public IActionResult CreatePizza ()
         {
             Pizza pizza = new Pizza();
-            return View(pizza);
+            return View(pizza.ToPizzaViewModel());
         }
 
-        public IActionResult AddPizza(Pizza pizza)
+        public IActionResult AddPizza(PizzaViewModel pizza)
         {
             //if (pizza.Name != "" && pizza.Price.ToString() != "")
             //{
             pizza.Id = ++StaticDb.PizzaId;
-            StaticDb.Pizzas.Add(pizza);
+            StaticDb.Pizzas.Add(pizza.ToPizzaDomain());
             return RedirectToAction("Index");
             //}
             //return View("BadRequest");
@@ -75,13 +77,13 @@ namespace SEDC.PizzaApp.Controllers
             {
                 return View("ResourceNotFound");
             }
-            return View(pizza);
+            return View(pizza.ToPizzaViewModel());
         }
 
-        public IActionResult EditChanges(Pizza pizza)
+        public IActionResult EditChanges(PizzaViewModel pizza)
         {
             int index = StaticDb.Pizzas.FindIndex(x => x.Id == pizza.Id);
-            StaticDb.Pizzas[index] = pizza;
+            StaticDb.Pizzas[index] = pizza.ToPizzaDomain();
             return RedirectToAction("Index");
         }
 
@@ -99,12 +101,12 @@ namespace SEDC.PizzaApp.Controllers
                 {
                     return View("ActionForbidden");
                 }
-                    return View(pizza);
+                    return View(pizza.ToPizzaViewModel());
             }
             return View("BadRequest");
         }
 
-        public IActionResult ConfirmDelete(Pizza pizza)
+        public IActionResult ConfirmDelete(PizzaViewModel pizza)
         {
             int index = StaticDb.Pizzas.FindIndex(x => x.Id == pizza.Id);
             StaticDb.Pizzas.RemoveAt(index);

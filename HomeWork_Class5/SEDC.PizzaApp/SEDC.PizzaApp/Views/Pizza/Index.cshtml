@@ -1,4 +1,4 @@
-﻿@model List<Pizza>
+﻿@model List<PizzaViewModel>
 @*@{
     ViewData["Title"] = "Index";
 }*@
@@ -6,7 +6,7 @@
 <h4>List of Pizzas: </h4>
 <br />
 <ul>
-    @foreach (Pizza pizza in @Model)
+    @foreach (PizzaViewModel pizza in @Model)
     {
         <li> Name: <a asp-controller="Pizza" asp-action="Details" asp-route-id="@pizza.Id">  @pizza.Name </a> </li>
         <li> Price @pizza.Price </li>

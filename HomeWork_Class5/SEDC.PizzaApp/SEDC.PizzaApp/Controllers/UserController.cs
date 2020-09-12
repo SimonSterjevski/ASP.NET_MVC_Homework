@@ -34,13 +34,13 @@ namespace SEDC.PizzaApp.Controllers
         public IActionResult CreateUser()
         {
             User user = new User();
-            return View(user);
+            return View(user.ToUserViewModel());
         }
 
-        public IActionResult AddUser(User user)
+        public IActionResult AddUser(UserViewModel user)
         {
             user.Id = ++StaticDb.UserId;
-            StaticDb.Users.Add(user);
+            StaticDb.Users.Add(user.ToUserDomainModel());
             return RedirectToAction("Index");
         }
 
@@ -55,13 +55,13 @@ namespace SEDC.PizzaApp.Controllers
             {
                 return View("ResourceNotFound");
             }
-            return View(user);
+            return View(user.ToUserViewModel());
         }
 
-        public IActionResult EditChanges(User user)
+        public IActionResult EditChanges(UserViewModel user)
         {
             int index = StaticDb.Users.FindIndex(x => x.Id == user.Id);
-            StaticDb.Users[index] = user;
+            StaticDb.Users[index] = user.ToUserDomainModel();
             return RedirectToAction("Index");
         }
 
@@ -84,7 +84,7 @@ namespace SEDC.PizzaApp.Controllers
             return View("BadRequest");
         }
 
-        public IActionResult ConfirmDelete(User user)
+        public IActionResult ConfirmDelete(UserDetailsViewModel user)
         {
             int index = StaticDb.Users.FindIndex(x => x.Id == user.Id);
             StaticDb.Users.RemoveAt(index);
