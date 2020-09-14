@@ -1,0 +1,27 @@
+﻿@model OrderDetailsViewModel
+
+@{ 
+    List<PizzaDDViewModel> pizzas = ViewBag.Pizzas;
+}
+
+<h2>Order Details</h2>
+<div>
+    <a asp-action="AddPizza" asp-controller="Order" asp-route-id="@Model.Id">Add Pizza</a>
+</div>
+<ul>
+    <li>Price: @Model.Price</li>
+    <li>Payment Method: @Model.PaymentMethod</li>
+    <li>Pizza Store: @Model.PizzaStore</li>
+    <li>User: @Model.UserFullName</li>
+    <li>
+        <ol>
+
+            @foreach (var pizzaName in Model.PizzaNames)
+            {
+                int pizzaId = pizzas.FirstOrDefault(x => x.Name == pizzaName).Id;
+                <li>@pizzaName  <span> <a asp-action="RemovePizza" asp-controller="Order"
+                asp-route-id="@Model.Id" asp-route-idpizza="@pizzaId"> Remove </a> </span></li>
+            }
+        </ol>
+    </li>
+</ul>

@@ -1,0 +1,13 @@
+﻿@model List<PizzaViewModel>
+
+<h4> List of pizzas </h4>
+
+<a asp-controller="Pizz" asp-action="CreatePizza"> Create new pizza </a>
+<hr />
+
+@foreach (PizzaViewModel pizza in @Model)
+{
+    <partial name="~/Views/Shared/Partial/_PizzaDetails.cshtml" for="@pizza" />
+    <a asp-controller="Pizz" asp-action="Details" asp-route-id="@pizza.Id"> See details </a>
+    <hr />
+}

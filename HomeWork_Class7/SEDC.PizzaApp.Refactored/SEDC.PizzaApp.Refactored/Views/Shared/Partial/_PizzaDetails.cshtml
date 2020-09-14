@@ -1,0 +1,12 @@
+﻿@model PizzaViewModel
+
+<ul>
+    <li> @Model.Name  </li>
+    @if (@Model.IsOnPromotion) 
+    {
+        <li> On promotion </li>
+    } else
+    {
+        <li> Regular price </li>
+    }
+</ul>

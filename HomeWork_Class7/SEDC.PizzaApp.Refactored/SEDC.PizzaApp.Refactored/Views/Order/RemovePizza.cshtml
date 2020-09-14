@@ -1,0 +1,19 @@
+﻿@model PizzaOrderViewModel
+
+@{
+    List<PizzaDDViewModel> pizzas = ViewBag.Pizzas;
+    string pizzaName = pizzas.FirstOrDefault(x => x.Id == @Model.PizzaId).Name;
+}  
+
+<h4> Remove pizza: @pizzaName, PizzaOrder number @Model.Id?</h4>   @*?????????*@
+
+<form asp-controller="Order" asp-action="ConfirmRemove" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="OrderId" />
+    <input type="hidden" asp-for="PizzaId" />
+    <button type="submit" class="btn btn-danger"> Remove </button>
+</form>
+
+
+
+
