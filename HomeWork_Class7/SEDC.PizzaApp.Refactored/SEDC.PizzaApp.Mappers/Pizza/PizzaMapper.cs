@@ -43,7 +43,7 @@ namespace SEDC.PizzaApp.Mappers.Pizza
         {
             return new PizzaOrderViewModel
             {
-                Id = pizzaOrder.Id,
+                Pk = pizzaOrder.Id,
                 OrderId = pizzaOrder.OrderId,
                 PizzaId = pizzaOrder.PizzaId,
                 PizzaSize = pizzaOrder.PizzaSize,

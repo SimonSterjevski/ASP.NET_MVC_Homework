@@ -114,7 +114,7 @@ namespace SEDC.PizzaApp.Services.Implementations
             {
                 throw new Exception("Pizza was not found");
             }
-            PizzaOrder pizzaOrder = order.PizzaOrders.FirstOrDefault(x => x.Id == pizzaOrderViewModel.Id);   /*??????*/
+            PizzaOrder pizzaOrder = order.PizzaOrders.FirstOrDefault(x => x.Id == pizzaOrderViewModel.Pk);   /*??????*/
             order.PizzaOrders.Remove(pizzaOrder);
             _orderRepository.Update(order);
         }
