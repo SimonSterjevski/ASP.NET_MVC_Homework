@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using SEDC.PizzaApp.DataAccess.Interfaces;
 using SEDC.PizzaApp.Domain.Models;
 
 namespace SEDC.PizzaApp.DataAccess.Implementations
 {
-    public class PizzaRepository : IRepository<Pizza>
+    public class PizzaRepository : IPizzaRepository
     {
         public List<Pizza> GetAll()
         {
@@ -54,6 +56,11 @@ namespace SEDC.PizzaApp.DataAccess.Implementations
             //delete record from DB
             int index = StaticDb.Pizzas.IndexOf(pizza);
             StaticDb.Pizzas.RemoveAt(index);
+        }
+
+        public List<Pizza> FindPizzasOnPromotion()
+        {
+            return StaticDb.Pizzas.Where(x => x.IsOnPromotion).ToList();
         }
     }
 }

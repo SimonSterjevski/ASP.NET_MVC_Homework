@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.PizzaApp.Services.Interfaces;
+using SEDC.PizzaApp.Validation;
 using SEDC.PizzaApp.ViewModels.Pizza;
 
 namespace SEDC.PizzaApp.Refactored.Controllers
@@ -46,7 +47,11 @@ namespace SEDC.PizzaApp.Refactored.Controllers
         {
             try
             {
-                _pizzaService.CreatePizza(pizzaViewModel);
+                if (!_pizzaService.CreatePizza(pizzaViewModel))
+                {
+                    ViewData["Limit"] = PizzasOnPromotionCheck.LimitNumber;
+                    return View("PromotionLimit");
+                }
                 return RedirectToAction("Index");
             }
             catch

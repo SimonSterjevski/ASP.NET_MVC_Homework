@@ -10,6 +10,6 @@ namespace SEDC.PizzaApp.Services.Interfaces
         List<PizzaDDViewModel> GetPizzasForDropdown();
         List<PizzaViewModel> GetAllPizzas();
         PizzaViewModel GetPizzaById(int id);
-        void CreatePizza(PizzaViewModel pizza);
+        bool CreatePizza(PizzaViewModel pizza);
     }
 }

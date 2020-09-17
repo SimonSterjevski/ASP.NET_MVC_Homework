@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SEDC.PizzaApp.Helpers\SEDC.PizzaApp.Helpers.csproj" />
     <ProjectReference Include="..\SEDC.PizzaApp.Services\SEDC.PizzaApp.Services.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaApp.Validation\SEDC.PizzaApp.Validation.csproj" />
   </ItemGroup>
 
 </Project>

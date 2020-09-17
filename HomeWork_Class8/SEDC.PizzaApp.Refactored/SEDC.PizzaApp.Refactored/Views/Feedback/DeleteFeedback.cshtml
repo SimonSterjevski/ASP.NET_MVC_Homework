@@ -1,0 +1,14 @@
+﻿@model FeedbackViewModel
+
+<h4> Are you sure you want to delete the feedback number @Model.Id ? </h4>
+<br />
+@*<a asp-controller="Feedback" asp-action="ConfirmDelete" asp-route-id="@Model.Id"> Confirm Delete </a>
+<a asp-controller="Feedback" asp-action="Details" asp-route-id="@Model.Id">  Go back </a>*@
+
+<form asp-controller="Feedback" asp-action="ConfirmDelete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit"> Confirm </button>
+    <div>
+        <a asp-controller="Feedback" asp-action="Details" asp-route-id="@Model.Id">Cancel</a>
+    </div>
+</form>

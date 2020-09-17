@@ -1,0 +1,22 @@
+﻿@model List<FeedbackViewModel>
+
+<h4> List of feedback: </h4>
+
+
+@foreach(FeedbackViewModel feedback in @Model)
+{
+    string messageToShow;
+    if (feedback.Message.Length > 20)
+    {
+        messageToShow = feedback.Message.Substring(0, 20) + "...";
+    } else
+    {
+        messageToShow = feedback.Message;
+    }
+    <p> user: @feedback.Name </p>
+    <p> text: @messageToShow </p>
+    <a asp-controller="Feedback" asp-action="Details" asp-route-id="@feedback.Id"> See Details </a>
+    <hr />
+}
+
+<a asp-controller="Feedback" asp-action="LeaveFeedback"> Leave feedback </a>

@@ -7,14 +7,16 @@ using SEDC.PizzaApp.Domain.Models;
 using SEDC.PizzaApp.Mappers.Pizza;
 using SEDC.PizzaApp.Services.Interfaces;
 using SEDC.PizzaApp.ViewModels.Pizza;
+using SEDC.PizzaApp.Validation;
+using SEDC.PizzaApp.DataAccess.Interfaces;
 
 namespace SEDC.PizzaApp.Services.Implementations
 {
     public class PizzaService: IPizzaService
     {
-        private IRepository<Pizza> _pizzaRepository;
+        private IPizzaRepository _pizzaRepository;
 
-        public PizzaService(IRepository<Pizza> pizzaRepository)
+        public PizzaService(IPizzaRepository pizzaRepository)
         {
             _pizzaRepository = pizzaRepository;
         }
@@ -46,10 +48,16 @@ namespace SEDC.PizzaApp.Services.Implementations
             return pizza.ToPizzaViewModel();
         }
 
-        public void CreatePizza(PizzaViewModel pizza)
+        public bool CreatePizza(PizzaViewModel pizza)
         {
+            List<Pizza> pizzas = _pizzaRepository.FindPizzasOnPromotion();
+            if (!PizzasOnPromotionCheck.CheckPizzasOnPromotion(pizzas, pizza.IsOnPromotion))
+            {
+                return false;
+            }
             Pizza newPizza = pizza.ToPizzaDomainModel();
             _pizzaRepository.Insert(newPizza);
+            return true;
         }
     }
 }

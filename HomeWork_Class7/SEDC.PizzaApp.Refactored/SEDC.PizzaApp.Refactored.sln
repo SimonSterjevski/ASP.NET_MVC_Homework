@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.DataAccess", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Domain", "SEDC.PizzaApp.Domain\SEDC.PizzaApp.Domain.csproj", "{3C8387EC-C8EA-491C-BA41-DEB40A1C248A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Helpers", "SEDC.PizzaApp.Helpers\SEDC.PizzaApp.Helpers.csproj", "{52D47349-1D60-4638-8561-01458FBCEE83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Helpers", "SEDC.PizzaApp.Helpers\SEDC.PizzaApp.Helpers.csproj", "{52D47349-1D60-4638-8561-01458FBCEE83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Validation", "SEDC.PizzaApp.Validation\SEDC.PizzaApp.Validation.csproj", "{180AEA83-A0A4-42B0-8570-8DF99F6667B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{52D47349-1D60-4638-8561-01458FBCEE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D47349-1D60-4638-8561-01458FBCEE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D47349-1D60-4638-8561-01458FBCEE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180AEA83-A0A4-42B0-8570-8DF99F6667B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180AEA83-A0A4-42B0-8570-8DF99F6667B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180AEA83-A0A4-42B0-8570-8DF99F6667B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180AEA83-A0A4-42B0-8570-8DF99F6667B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
