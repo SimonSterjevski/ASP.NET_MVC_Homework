@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model HomeViewModel
+<div class="jumbotron">
+    <h1>Welcome to our pizza app!</h1>
+    <h2>Order your pizza now!</h2>
+    <h3>Until now we have @Model.OrderCount orders!</h3>
+    <h3>Our most popular pizza is <b>@Model.MostPopularPizza</b>!</h3>
+    @if (!string.IsNullOrEmpty(Model.PizzaOnPromotion))
+    {
+        <h2>Today on promotion is @Model.PizzaOnPromotion!</h2>
+    }
+    else
+    {
+        <h3>Today there aren't pizzas on promotion!</h3>
+    }
+</div>

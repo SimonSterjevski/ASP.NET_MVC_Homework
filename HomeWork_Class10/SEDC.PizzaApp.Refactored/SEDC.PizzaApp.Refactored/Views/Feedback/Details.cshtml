@@ -1,0 +1,11 @@
+﻿@model FeedbackViewModel
+
+<h4> Feedback Detail: </h4>
+
+<p> Name: @Model.Name </p>
+<p> Email: @Model.Email</p>
+<p> Message: @Model.Message </p>
+<br />
+<a asp-controller="Feedback" asp-action="Index"> Go back </a>
+<a asp-controller="Feedback" asp-action="EditFeedback" asp-route-id="@Model.Id"> Edit feedback </a>
+<a asp-controller="Feedback" asp-action="DeleteFeedback" asp-route-id="@Model.Id"> Delete feedback </a>
